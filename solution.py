@@ -33,9 +33,9 @@ class SOLUTION:
             for n in self.links_with_sensors:
                 f.write(str(n))
 
-        os.system('python simulate.py {} {} 2&>1 &'.format(directOrGUI, self.myID))
+        #os.system('python simulate.py {} {} 2&>1 &'.format(directOrGUI, self.myID))
 
-        #os.system('python simulate.py {} {}'.format(directOrGUI, self.myID))
+        os.system('python simulate.py {} {}'.format(directOrGUI, self.myID))
 
     def Wait_For_Simulation_To_End(self):
         while not os.path.exists('fitness{}.txt'.format(self.myID)):

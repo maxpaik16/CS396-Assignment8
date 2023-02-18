@@ -1,20 +1,12 @@
 pybullet build time: Jan  6 2023 20:39:09
-Version = 4.1 Metal - 83
-Vendor = Apple
-Renderer = Apple M1
-b3Printf: Selected demo: Physics Server
-startThreads creating 1 threads.
-starting thread 0
-started thread 0 
-MotionThreadFunc thread started
-b3Printf: b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
-
-b3Printf: expected a world element, continuing without it.
-numActiveThreads = 0
-stopping threads
-Thread with taskId 0 exiting
-Thread TERMINATED
-destroy semaphore
-semaphore destroyed
-destroy main semaphore
-main semaphore destroyed
+Traceback (most recent call last):
+  File "/Users/maxpaik/Documents/Northwestern/courses/CS396ArtificialLife/ludobots/CS396-Assignment8/simulate.py", line 8, in <module>
+    simulation = SIMULATION(directOrGUI, solutionID)
+  File "/Users/maxpaik/Documents/Northwestern/courses/CS396ArtificialLife/ludobots/CS396-Assignment8/simulation.py", line 19, in __init__
+    p.configureDebugVisualizer(p.COV_ENABLE_GUI, 0)
+pybullet.error: Not connected to physics server.
+Exception ignored in: <function SIMULATION.__del__ at 0x11368b9d0>
+Traceback (most recent call last):
+  File "/Users/maxpaik/Documents/Northwestern/courses/CS396ArtificialLife/ludobots/CS396-Assignment8/simulation.py", line 52, in __del__
+    p.disconnect()
+pybullet.error: Not connected to physics server.

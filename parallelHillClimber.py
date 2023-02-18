@@ -10,6 +10,7 @@ class PARALLEL_HILL_CLIMBER:
     def __init__(self):
         self.parents = {}
         self.nextAvailableID = 0
+        self.best_fitnesses = []
 
         for n in range(c.populationSize):
             self.parents[n] = SOLUTION(self.nextAvailableID)
@@ -54,9 +55,12 @@ class PARALLEL_HILL_CLIMBER:
             child.Mutate()
 
     def Select(self):
+        best = 100
         for n in self.parents.keys():
             if self.children[n].fitness < self.parents[n].fitness:
                 self.parents[n] = self.children[n]
+            best = min(self.parents[n].fitness, best)
+        self.best_fitnesses.append(best)
 
     def Print(self):
         print('\n')
