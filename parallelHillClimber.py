@@ -17,6 +17,7 @@ class PARALLEL_HILL_CLIMBER:
             self.nextAvailableID += 1
 
         os.system('rm brain*.nndf')
+        os.system('rm body*.urdf')
         os.system('rm fitness*.txt')
 
     def Evolve(self):
@@ -55,11 +56,11 @@ class PARALLEL_HILL_CLIMBER:
             child.Mutate()
 
     def Select(self):
-        best = 100
+        best = -100
         for n in self.parents.keys():
-            if self.children[n].fitness < self.parents[n].fitness:
+            if self.children[n].fitness > self.parents[n].fitness:
                 self.parents[n] = self.children[n]
-            best = min(self.parents[n].fitness, best)
+            best = max(self.parents[n].fitness, best)
         self.best_fitnesses.append(best)
 
     def Print(self):

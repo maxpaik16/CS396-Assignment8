@@ -12,10 +12,11 @@ from pyrosim.neuralNetwork import NEURAL_NETWORK
 class ROBOT:
 
     def __init__(self, ID):
-        self.robotID = p.loadURDF('body.urdf')
+        self.robotID = p.loadURDF('body{}.urdf'.format(ID))
         self.nn = NEURAL_NETWORK('brain{}.nndf'.format(ID))
         self.myID = ID
         os.system('rm brain{}.nndf'.format(self.myID))
+        os.system('rm body{}.urdf'.format(self.myID))
 
     def Prepare_To_Sense(self):
         self.sensors = {}
@@ -54,9 +55,9 @@ class ROBOT:
     def Get_Fitness(self):
         stateOfLinkZero = p.getLinkState(self.robotID, 0)
         positionOfLinkZero = stateOfLinkZero[0]
-        xCoordinateOfLinkZero = positionOfLinkZero[0]
+        yCoordinateOfLinkZero = positionOfLinkZero[1]
 
         with open('fitnesstmp{}.txt'.format(self.myID), 'w') as f:
-            f.write(str(xCoordinateOfLinkZero))
+            f.write(str(yCoordinateOfLinkZero))
 
         os.system('mv {} {}'.format('fitnesstmp{}.txt'.format(self.myID), 'fitness{}.txt'.format(self.myID)))
