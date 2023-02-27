@@ -16,7 +16,7 @@ class SOLUTION:
         self.num_joints = 4
         self.links_with_sensors = [1]
         for i in range(2, self.num_joints + 2):
-            if np.random.random() > .5:
+            if np.random.random() > .2:
                 self.links_with_sensors.append(i)
 
         self.link_sizes = [[np.random.random(), np.random.random(), np.random.random()] for i in range(self.num_joints + 1)]
@@ -69,9 +69,9 @@ class SOLUTION:
 
     def Create_Robot_Data(self):
 
-        lastpos = [0, 0, 1 + self.link_sizes[0][2] / 2]
+        lastpos = [0, 0, self.link_sizes[0][2] / 2]
         self.link_posns.append(lastpos)
-        self.joint_posns.append([self.link_sizes[0][0] / 2, 0, 1+self.link_sizes[0][2]])
+        self.joint_posns.append([self.link_sizes[0][0] / 2, 0, self.link_sizes[0][2]])
         self.joint_axes.append("0 1 0")
         self.directions.append(0)
         self.link_to_centers.append(lastpos)

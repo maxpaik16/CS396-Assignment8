@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
 
-    for i in range(1, 2):
-        #np.random.seed(i)
+    for i in range(1, 6):
+        np.random.seed(i)
         phc = PARALLEL_HILL_CLIMBER()
         phc.Evolve()
         phc.Show_Best()
